@@ -7,6 +7,7 @@
     <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.CountryFragment">
 
 
@@ -16,9 +17,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="7dp"
             android:layout_marginBottom="7dp"
+            android:background="@drawable/border"
             android:minHeight="200dp"
             android:scaleType="fitCenter" />
 
@@ -26,6 +28,7 @@
             android:id="@+id/countryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_below="@id/countryView"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="7dp"
@@ -43,6 +46,7 @@
             android:layout_below="@id/countryName"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp"
+            android:textColor="@color/black"
             android:text="Country Capital"
             android:textSize="16sp" />
 
@@ -53,6 +57,7 @@
             android:layout_below="@id/countryCapital"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp"
+            android:textColor="@color/black"
             android:text="Country Region"
             android:textSize="16sp" />
 
@@ -62,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/countryRegion"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
             android:layout_margin="7dp"
             android:text="Country Currency"
             android:textSize="16sp" />
@@ -72,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/countryCurrency"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
             android:layout_margin="7dp"
             android:text="Country Language"
             android:textSize="16sp" />

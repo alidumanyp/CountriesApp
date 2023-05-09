@@ -31,7 +31,7 @@ class CountryAdapter(private val countryList: ArrayList<Country>) : RecyclerView
         holder.binding.feedView.getImageWithGlide(countryList[position].imageUrl, placeholderProgressBar(holder.itemView.context))
 
         holder.itemView.setOnClickListener {
-            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(13)
+            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(countryList[position].uuid)
             Navigation.findNavController(it).navigate(action)
         }
 

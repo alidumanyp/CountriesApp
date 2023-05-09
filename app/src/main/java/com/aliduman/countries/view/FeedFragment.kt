@@ -44,7 +44,7 @@ class FeedFragment : Fragment() {
             binding?.countryError?.visibility = View.GONE
             binding?.countryLoading?.visibility = View.VISIBLE
 
-            viewModel.refreshData()
+            viewModel.refreshFromAPI()
 
             binding?.swipeRefreshLayout?.isRefreshing = false
 

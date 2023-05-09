@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.aliduman.countries.databinding.FragmentCountryBinding
+import com.aliduman.countries.util.getImageWithGlide
+import com.aliduman.countries.util.placeholderProgressBar
 import com.aliduman.countries.viewmodel.CountryViewModel
 
 class CountryFragment : Fragment() {
@@ -28,27 +30,29 @@ class CountryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+       arguments?.let {
+           countryUuid = CountryFragmentArgs.fromBundle(it).countryUuid
+       }
+
         viewModel = ViewModelProviders.of(this)[CountryViewModel::class.java]
-        viewModel.getDataFromRoom()
+        viewModel.getDataFromRoom(countryUuid)
 
         observeLiveData()
-
-
-        /*
-        arguments?.let {
-            countryUuid = CountryFragmentArgs.fromBundle(it).countryUuid
-        }
-         */
     }
 
     private fun observeLiveData() {
-        viewModel.countryLiveData.observe(viewLifecycleOwner, Observer {
-            it?.let {
+        viewModel.countryLiveData.observe(viewLifecycleOwner, Observer {country ->
+            country?.let {
                 binding?.countryName?.text = it.countryName
                 binding?.countryCapital?.text = it.countryCapital
                 binding?.countryCurrency?.text = it.countryCurrency
                 binding?.countryLanguage?.text = it.countryLanguage
                 binding?.countryRegion?.text = it.countryRegion
+
+                context?.let {
+                    binding?.countryView?.getImageWithGlide(country.imageUrl, placeholderProgressBar(it)) }
+
+
             }
         })
 
