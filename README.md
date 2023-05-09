@@ -9,9 +9,7 @@ It is an application that contains many up-to-date android jetpack libraries and
    
 ## Used in the project
 - Firebase
-- WorkManager
 - Coroutines
-- Flow
 - Retrofit
 - RxJava
 - Room
