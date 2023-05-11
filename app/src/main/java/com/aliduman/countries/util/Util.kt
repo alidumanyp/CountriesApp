@@ -2,6 +2,7 @@ package com.aliduman.countries.util
 
 import android.content.Context
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.aliduman.countries.R
 import com.bumptech.glide.Glide
@@ -27,6 +28,13 @@ fun placeholderProgressBar(context: Context) : CircularProgressDrawable{
         strokeWidth = 8f
         centerRadius = 40f
         start()
+    }
+}
+
+@BindingAdapter("android:downloadUrl")
+fun downloadImage(view: ImageView, url: String?) {
+    url?.let {
+        view.getImageWithGlide(it, placeholderProgressBar(view.context))
     }
 }
 
